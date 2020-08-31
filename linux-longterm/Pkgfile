@@ -5,7 +5,7 @@
 
 name=linux-longterm
 version=5.4.61
-release=2
+release=3
 source=(
 https://cdn.kernel.org/pub/${name%-*}/kernel/v${version:0:1}.x/${name%-*}-$version.tar.xz
 )
@@ -48,6 +48,7 @@ build() {
 	scripts/config -e SND_USB_AUDIO
 	
 	# Media
+	scripts/config -e MEDIA_SUPPORT
 	scripts/config -e CONFIG_MEDIA_CAMERA_SUPPORT
 	scripts/config -e CONFIG_MEDIA_CONTROLLER
 	scripts/config -e CONFIG_VIDEO_DEV
